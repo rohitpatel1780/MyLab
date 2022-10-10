@@ -24,14 +24,14 @@ pipeline{
         }
 
         // Stage3  Deploying
-        stage('Deploy'){
+       /* stage('Deploy'){
             steps{
                 echo 'deplying....'
             }
-        }
+        }*/
 
         // Stage3 : Publish the source code to Sonarqube
-      /*  stage ('Sonarqube Analysis'){
+       /* stage ('Sonarqube Analysis'){
             steps {
                 echo ' Source code published to Sonarqube for SCA......'
                 withSonarQubeEnv('sonarqube'){ // You can override the credential to be used
@@ -40,6 +40,21 @@ pipeline{
 
             }
         }*/
+        //Stage3 : Publish the source code to nexus
+        stage ('Sonarqube Analysis'){
+            steps {
+                nexusArtifactUploader artifacts: [[artifactId: 'VinayDevOpsLab', classifier: '', file: 'target/VinayDevOpsLab-0.0.10-SNAPSHOT.war', type: 'war']], credentialsId: '3c801841-b07c-4746-9226-a1db343f7347', groupId: 'com.vinaysdevopslab', nexusUrl: '18.116.44.114:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'RohitDevOpsLab-SNAPSHOT', version: '0.0.10-SNAPSHOT'
+                }
+
+            }
+        
+
+         // Stage3  Deploying
+       /stage('Deploy'){
+            steps{
+                echo 'deplying....'
+            }
+        }
 
         
         
