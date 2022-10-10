@@ -52,16 +52,16 @@ pipeline{
         stage ('Sonarqube Analysis'){
             steps {
                 nexusArtifactUploader artifacts: [[
-                    artifactId: 'VinayDevOpsLab',
-                     classifier: '', file: 'target/VinayDevOpsLab-0.0.10-SNAPSHOT.war',
+                    artifactId: '${ArtifactId}',
+                     classifier: '', file: 'target/${ArtifactId}-${Version}.war',
                       type: 'war']], 
                       credentialsId: '3c801841-b07c-4746-9226-a1db343f7347', 
-                      groupId: 'com.vinaysdevopslab', 
+                      groupId: '${GroupId}', 
                       nexusUrl: '18.116.44.114:8081', 
                       nexusVersion: 'nexus3', 
                       protocol: 'http', 
                       repository: 'RohitDevOpsLab-SNAPSHOT', 
-                      version: '0.0.10-SNAPSHOT'
+                      version: '${Version}'
                 }
 
             }
