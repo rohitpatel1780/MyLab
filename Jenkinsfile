@@ -23,8 +23,15 @@ pipeline{
             }
         }
 
+        // Stage3  Deploying
+        stage('Deploy'){
+            steps{
+                echo 'deplying....'
+            }
+        }
+
         // Stage3 : Publish the source code to Sonarqube
-        stage ('Sonarqube Analysis'){
+      /*  stage ('Sonarqube Analysis'){
             steps {
                 echo ' Source code published to Sonarqube for SCA......'
                 withSonarQubeEnv('sonarqube'){ // You can override the credential to be used
@@ -32,7 +39,7 @@ pipeline{
                 }
 
             }
-        }
+        }*/
 
         
         
