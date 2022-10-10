@@ -50,7 +50,7 @@ pipeline{
         
 
          // Stage3  Deploying
-       /stage('Deploy'){
+       stage('Deploy'){
             steps{
                 echo 'deplying....'
             }
