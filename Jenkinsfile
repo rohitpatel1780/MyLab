@@ -54,6 +54,7 @@ pipeline{
                  script {
 
                 def NexusRepo = Version.endsWith("SNAPSHOT") ? "VinaysDevOpsLab-SNAPSHOT" : "VinaysDevOpsLab-RELEASE"
+                
                 nexusArtifactUploader artifacts: [[
                     artifactId: "${ArtifactId}",
                      classifier: '', 
