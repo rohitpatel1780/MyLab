@@ -60,7 +60,7 @@ pipeline{
                      classifier: '', 
                      file: "target/${ArtifactId}-${Version}.war",
                       type: 'war']], 
-                      credentialsId: '3c801841-b07c-4746-9226-a1db343f7347', 
+                      credentialsId: 'a6deacd0-c376-4c12-b386-43cf0372dbd2', 
                       groupId: "${GroupId}", 
                       nexusUrl: '18.116.44.114:8081', 
                       nexusVersion: 'nexus3', 
@@ -71,6 +71,9 @@ pipeline{
                 }
 
             }
+
+            //nexusArtifactUploader artifacts: [[artifactId: 'VinayDevOpsLab', classifier: '', file: 'target/VinayDevOpsLab-0.0.11-SNAPSHOT.war', type: 'war']], credentialsId: 
+            //'a6deacd0-c376-4c12-b386-43cf0372dbd2', groupId: 'com.vinaysdevopslab', nexusUrl: '18.116.44.114:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'VinaysDevOpsLab-SNAPSHOT', version: '0.0.11-SNAPSHOT'
 
             //Stage 4 : Print some information
             stage('Pring Environmnet Variable'){
